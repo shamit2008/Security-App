@@ -106,12 +106,17 @@ export default class HomeScreen extends Component {
     website = website.toLowerCase();
 
     const userArray = website.split('.');
-    if (userArray.length() !== 3 || userArray [0] !== ['www']){
+    if (userArray.length !== 3 || userArray [0] !== ['www']){
       document.getElementById("resultTextId").innerHTML = "This is not in the valid format. (www.examplesite.com)"
       document.getElementById("resultTextId").style.color = "red"
       document.getElementById("resultTextId").style.textAlign = "center"
     }
-    if (dangerous.includes(website)){
+    if (website = 'www.example.com'){
+      document.getElementById("resultTextId").innerHTML = "You didn't write anything"
+      document.getElementById("resultTextId").style.color = "red"
+      document.getElementById("resultTextId").style.textAlign = "center"
+    }
+    else if (dangerous.includes(website)){
     	document.getElementById("resultTextId").innerHTML = "This site is not secure. Please refrain from using it."
       document.getElementById("resultTextId").style.color = "red"
       document.getElementById("resultTextId").style.textAlign = "center"
