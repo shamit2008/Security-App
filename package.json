@@ -1,21 +1,25 @@
 {
-  "name": "exported-from-react-studio",
+  "name": "Security-App",
+  "homepage": "https://shamit2008.github.io/Security-App/src/HomeScreen.js",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-localization": "^1.0.13",
+    "gh-pages": "^3.1.0",
+    "muicss": "^0.10.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-localization": "^1.0.17",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "2.1.8",
-    "muicss": "^0.10.3"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "cross-env PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "openbrowser": "node -e 'const openBrowser = require(\"react-dev-utils/openBrowser\"); openBrowser(\"http://localhost:3000\"); process.exit();'"
+    "openbrowser": "node -e 'const openBrowser = require(\"react-dev-utils/openBrowser\"); openBrowser(\"http://localhost:3000\"); process.exit();'",
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
