@@ -165,7 +165,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/Security-App/" render={(props) => makeElementForScreen('home', props.location.state, true, true)} exact />
+          <Route path="/" render={(props) => makeElementForScreen('home', props.location.state, true, true)} exact />
           <Route path="/info" render={(props) => {
             return makeElementForScreen('info', props.location.state, true, true);
           }} />
