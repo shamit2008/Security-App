@@ -7,6 +7,8 @@ import Button from 'muicss/lib/react/button';
 import Input from 'muicss/lib/react/input';
 import Appbar from 'muicss/lib/react/appbar';
 
+//import { DynamoDB } from "@aws-sdk/client-dynamodb";
+
 export default class HomeScreen extends Component {
 
   // Properties used by this component:
@@ -27,10 +29,40 @@ export default class HomeScreen extends Component {
 
   componentDidUpdate() {
   }
-
+  // urls are from python flask and retrieeve data from that
   onClick_elButton = async () => {
     // Write your script here
     
+    const { DynamoDB, UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
+    const dbclient = new DynamoDB({ region: "us-east-2"});
+    // const user = {
+    //   auth: { BOOL: false },
+    //   username: { S: "siegbert" },
+    //   secondsLeft: { N: "49985" },
+    //   userid: { S: "123456" },
+    // };
+    var params = {
+      
+      TableName: "FirstTest",
+      Key: {
+        FirstName: "Shaurya",
+        // id: user.userid,
+      },
+      UpdateExpression: "SET SiteLength = :newsecondsLeft",
+      ExpressionAttributeValues: {
+         ":newsecondsLeft": 8,
+       },
+      ReturnValues: "UPDATED_NEW",
+    };
+    
+    dbclient
+      .send(new UpdateItemCommand(params))
+      .then((result) => {
+        console.log("data:" + result);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
 
     
     const dangerous = [
